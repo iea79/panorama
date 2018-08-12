@@ -4,7 +4,7 @@
 	font-family: $main_font_family;
 	font-size: 0.875em;
 	font-weight: 900;
-	padding: 1.85em 2.6em 1.6em;
+	padding: 1.85em 2.4em 1.6em;
 	border: none;
 	outline: none;
 	text-decoration: none;
@@ -41,5 +41,8 @@
 	// 			color: $btn_contrast_text_color;
 	// 		}
 	// 	}
-	// }	
+	// }
+	@media (max-width: 767px) {
+	    
+	}
 }

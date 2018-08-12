@@ -1,7 +1,9 @@
 // Social link
 .soc {
-	float: left;
-	margin-right: 3em;
+	@media (min-width: 768px) {
+		float: left;
+		margin-right: 4.7em;
+	}
 	a {
 		display: inline-block;
 		color: $color_withe;
@@ -16,19 +18,38 @@
 			color: #716147;
 		}
 	}
+	@media (max-width: 1199px) {
+	    margin-right: 4em;
+	}
+	@media (max-width: 767px) {
+	    margin-bottom: 1.6em;
+	    a {
+	    	margin-right: 1em;
+	    }
+	}
 }
 
+$color: rgba($color_withe, 0.7);
 .copy {
 	overflow: hidden;
 	font-size: 0.5em;
-	color: rgba($color_withe, .3);
+	color: $color;
 	max-width: 46.2em;
 	text-transform: uppercase;
+	line-height: 2.4;
 	a {
-		color: rgba($color_withe, .3);
+		color: $color;
 		&:hover {
 			text-decoration: none;
 			
 		}
 	}
+	@media (max-width: 1199px) {
+	    max-width: 38.7em;
+	    line-height: 1.7;
+	    br {
+	    	// display: none;
+	    }
+	}
+
 }

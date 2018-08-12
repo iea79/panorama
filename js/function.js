@@ -24,80 +24,49 @@ function isTouch() { return TempApp.touchDevice(); } // for touch device
 
 $(document).ready(function() {
 
-    // Хак для клика по ссылке на iOS
     if (isIOS()) {
         $(function(){$(document).on('touchend', 'a', $.noop)});
     }
 
-	if ('flex' in document.documentElement.style) {
-		// Хак для UCBrowser
-		if (navigator.userAgent.search(/UCBrowser/) > -1) {
-			document.documentElement.setAttribute('data-browser', 'not-flex');
-		} else {		
-		    // Flexbox-совместимый браузер.
-			document.documentElement.setAttribute('data-browser', 'flexible');
-		}
-	} else {
-	    // Браузер без поддержки Flexbox, в том числе IE 9/10.
-		document.documentElement.setAttribute('data-browser', 'not-flex');
-	}
+    $('[href*="#"]').click(function(event) {
+        event.preventDefault();
+    });
 
-	// First screen full height
-	function setHeiHeight() {
-	    $('.full__height').css({
-	        height: $(window).height() - $('.footer').height()
-	    });
-	}
-	setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
-	$(window).resize( setHeiHeight ); // обновляем при изменении размеров окна
+    $('[name=tel]').inputmask("+7(999)999 99 99",{ showMaskOnHover: false });
 
+    fontResize();
+    formSubmit();
+    checkOnResize();
 
-	// Reset link whte attribute href="#"
-	$('[href*="#"]').click(function(event) {
-		event.preventDefault();
-	});
+    $('[data-switch]').on('click', function(event) {
+        event.preventDefault();
+        var elId = $(this).data('switch');
+        $('[data-step]').removeClass('active');
+        $('[data-step='+elId+']').addClass('active');
+    });
 
-	// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
-	// $('#main__menu a[href^="#"]').click( function(){ 
-	// 	var scroll_el = $(this).attr('href'); 
-	// 	if ($(scroll_el).length != 0) {
-	// 	$('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-	// 	}
-	// 	return false;
-	// });
+    setTimeout(function() {
+        $('.content,.footer,.header').addClass('show');
+    }, 500);
 
-	// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
-    // $(document).ready(function(){
-    //     var HeaderTop = $('#header').offset().top;
-        
-    //     $(window).scroll(function(){
-    //             if( $(window).scrollTop() > HeaderTop ) {
-    //                     $('#header').addClass('stiky');
-    //             } else {
-    //                     $('#header').removeClass('stiky');
-    //             }
-    //     });
-    // });
-
-    // Inputmask.js
-    // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
-
-   	// gridMatch();
-    fontResize()
 });
 
 $(window).resize(function(event) {
     var windowWidth = $(window).width();
-    // Запрещаем выполнение скриптов при смене только высоты вьюпорта (фикс для скролла в IOS и Android >=v.5)
     if (TempApp.resized == windowWidth) { return; }
     TempApp.resized = windowWidth;
 
-    checkOnResize()
+    checkOnResize();
 });
 
 function checkOnResize() {
-    // gridMatch();
-    fontResize()
+    fontResize();
+    if (isLgWidth()) {
+        $('.content__right').insertAfter('.content__left');
+    } else {
+        $('.content__right').insertBefore('.content__left');
+    }
+
 }
 
 function gridMatch() {
@@ -108,12 +77,14 @@ function gridMatch() {
 
 function fontResize() {
     var windowWidth = $(window).width();
-    if (windowWidth >= 1100) {
-    	var fontSize = windowWidth/19.05;
-    } else if (windowWidth < 768) {
-    	var fontSize = 50;
-    // } else if (windowWidth >= 1770) {
-    // 	var fontSize = 100;
+    if (isLgWidth()) {
+        var fontSize = windowWidth/19.05;
+    } else if (isMdWidth()) {
+        var fontSize = windowWidth/12.15;
+    } else if (isSmWidth()) {
+    	var fontSize = windowWidth/12.15;
+    } else if (isXsWidth()) {
+        var fontSize = windowWidth/4.15;
     }
 	$('body').css('fontSize', fontSize + '%');
 }
@@ -149,7 +120,6 @@ $(function () {
 
         });
     }
-
 });
 
 
@@ -193,71 +163,72 @@ $(function () {
 // })
 
 // Простая проверка форм на заполненность и отправка аяксом
-// function formSubmit() {
-//     $("[type=submit]").on('click', function (e){ 
-//         e.preventDefault();
-//         var form = $(this).closest('.form');
-//         var url = form.attr('action');
-//         var form_data = form.serialize();
-//         var field = form.find('[required]');
-//         // console.log(form_data);
+function formSubmit() {
+    $("[type=submit]").on('click', function (e){ 
+        e.preventDefault();
+        var form = $(this).closest('.form');
+        var url = form.attr('action');
+        var form_data = form.serialize();
+        var field = form.find('[required]');
+        // console.log(form_data);
 
-//         empty = 0;
+        empty = 0;
 
-//         field.each(function() {
-//             if ($(this).val() == "") {
-//                 $(this).addClass('invalid');
-//                 // return false;
-//                 empty++;
-//             } else {
-//                 $(this).removeClass('invalid');
-//                 $(this).addClass('valid');
-//             }  
-//         });
+        field.each(function() {
+            if ($(this).val() == "") {
+                $(this).addClass('invalid');
+                // return false;
+                empty++;
+            } else {
+                $(this).removeClass('invalid');
+                $(this).addClass('valid');
+            }  
+        });
 
-//         // console.log(empty);
+        // console.log(empty);
 
-//         if (empty > 0) {
-//             return false;
-//         } else {        
-//             $.ajax({
-//                 url: url,
-//                 type: "POST",
-//                 dataType: "html",
-//                 data: form_data,
-//                 success: function (response) {
-//                     // $('#success').modal('show');
-//                     // console.log('success');
-//                     console.log(response);
-//                     // console.log(data);
-//                     // document.location.href = "success.html";
-//                 },
-//                 error: function (response) {
-//                     // $('#success').modal('show');
-//                     // console.log('error');
-//                     console.log(response);
-//                 }
-//             });
-//         }
+        if (empty > 0) {
+            return false;
+        } else {        
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "html",
+                data: form_data,
+                success: function (response) {
+                    $('[data-step]').removeClass('active');
+                    $('[data-step="3"]').addClass('active');
+                    setTimeout(function() {
+                        $('[data-step]').removeClass('active');
+                        $('[data-step="1"]').addClass('active');
+                    }, 3000);
+                },
+                error: function (response) {
+                    // $('#success').modal('show');
+                    // console.log('error');
+                    // console.log(response);
+                }
+            });
+        }
 
-//     });
+    });
 
-//     $('[required]').on('blur', function() {
-//         if ($(this).val() != '') {
-//             $(this).removeClass('invalid');
-//         }
-//     });
+    $('[required]').on('blur', function() {
+        if ($(this).val() != '') {
+            $(this).removeClass('invalid');
+        }
+    });
 
-//     $('.form__privacy input').on('change', function(event) {
-//         event.preventDefault();
-//         var btn = $(this).closest('.form').find('.btn');
-//         if ($(this).prop('checked')) {
-//             btn.removeAttr('disabled');
-//             // console.log('checked');
-//         } else {
-//             btn.attr('disabled', true);
-//         }
-//     });
-// }
+    $('.form__privacy input').on('change', function(event) {
+        event.preventDefault();
+        var btn = $(this).closest('.form').find('.btn');
+        if ($(this).prop('checked')) {
+            btn.removeAttr('disabled');
+            // console.log('checked');
+        } else {
+            btn.attr('disabled', true);
+        }
+    });
+}
 
 

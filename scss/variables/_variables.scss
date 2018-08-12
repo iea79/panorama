@@ -15,11 +15,7 @@ $main_font_size:								1em;
 
 $container_width:								auto;
 
-$footer_height: 								5em;
-
-$green:											$color_success;
-$yellow:										$color_warning;
-$withe:											$color_withe;
+$footer_height: 								5.4em;
 
 $el-colors: (
 	primary: $color_primary, // color for .element__primary
@@ -40,28 +36,28 @@ $grid_padding:									1.5em;
 // Input variables
 
 // Input color
-$input_color:									$main_color;
-$input_bg_color:								#fff;
-$input_border_color:							#ddd;
-$input_placeholder_color:						#ddd;
+$input_color:									$color_withe;
+$input_bg_color:								transparent;
+$input_border_color:							$color_withe;
+$input_placeholder_color:						$color_info;
 
 // Input hover color
-$input_hover_color:								#fff;
-$input_hover_bg_color:							#fff;
-$input_hover_border_color:						#ddd;
-$input_hover_placeholder_color:					#ddd;
+$input_hover_color:								$input_color;
+$input_hover_bg_color:							$input_bg_color;
+$input_hover_border_color:						$color_withe;
+$input_hover_placeholder_color:					$color_info;
 
 // Input focus color
-$input_focus_color:								#fff;
-$input_focus_bg_color:							#fff;
-$input_focus_border_color:						#ddd;
-$input_focus_placeholder_color:					#ddd;
+$input_focus_color:								$input_color;
+$input_focus_bg_color:							$input_bg_color;
+$input_focus_border_color:						$color_primary;
+$input_focus_placeholder_color:					$color_info;
 
 // Input disabled color
 $input_disabled_color:							#fff;
-$input_disabled_bg_color:						#ccc;
+$input_disabled_bg_color:						$input_bg_color;
 $input_disabled_border_color:					#ccc;
-$input_disabled_placeholder_color:				#fff;
+$input_disabled_placeholder_color:				#ddd;
 
 // Input error color
 $input_error_color:								red;

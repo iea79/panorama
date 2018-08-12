@@ -20,6 +20,20 @@
 		bottom: -26.5em;
 		left: -14.1em;
 	}
+	@media (max-width: 1199px) {
+	    &:before {
+	    	width: 90em;
+	    	height: 90em;
+	    	left: -55em;
+	    	bottom: -50em;
+	    }
+	}
+	@media (max-width: 767px) {
+		margin-bottom: -11em;
+	    &:before {
+	    	display: none;
+	    }
+	}
 }
 
 /* Middle
@@ -30,10 +44,10 @@
 // }
 
 .container_center {
-	max-width: $container_width;
 	padding: 0 15px;
 	margin-left: auto;
 	margin-right: auto;
+	max-width: $container_width;
 }
 
 .column {

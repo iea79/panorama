@@ -1,27 +1,27 @@
 .form {
 	@extend %clear_a;
-	&__row {
-		margin-bottom: 15px;
-		@extend %clear_a;
-		input:not([type]),
-		input[type=text],
-		input[type=password],
-		input[type=email],
-		input[type=url],
-		input[type=search],
-		input[type=tel],
-		input[type=number],
-		input[type=datetime], 
-		textarea,
-		.btn {
-			width: 100%;
-		}
-		textarea {
-			max-width: 100%;
-			max-width: 100%;
-			min-height: 15px;
-		}
+	input:not([type]),
+	input[type=text],
+	input[type=password],
+	input[type=email],
+	input[type=url],
+	input[type=search],
+	input[type=tel],
+	input[type=number],
+	input[type=datetime], 
+	textarea, {
+		width: 100%;
+		margin-bottom: 2.4em;
 	}
+	// &__row {
+	// 	margin-bottom: 15px;
+	// 	@extend %clear_a;
+	// 	textarea {
+	// 		max-width: 100%;
+	// 		max-width: 100%;
+	// 		min-height: 15px;
+	// 	}
+	// }
 	&__label {
 		
 	}
@@ -38,29 +38,43 @@ input[type=number],
 input[type=datetime], 
 textarea {
 	background-color: $input_bg_color;
-	border: 1px solid $input_border_color;
-	padding: 6px 15px;
+	border: none;
+	color: $input_color;
+	border-bottom: 0.125em solid $input_border_color;
+	padding: 0 1.9em 1.6em;
 	outline: none;
-	font-size: 16px;
-	font-weight: 300;
+	font-size: 0.85em;
+	font-weight: 400;
 	font-family: $main_font_family;
-	border-radius: 5px;
+	border-radius: 0;
 	transition: all .3s;
 	&:hover {
-		border: 1px solid $input_hover_border_color;
+		border-bottom: 0.125em solid $input_hover_border_color;
 		background-color: $input_hover_bg_color;;
 	}
 	&:focus {
-		border: 1px solid $input_focus_border_color;
+		border-bottom: 0.125em solid $input_focus_border_color;
 		background-color: $input_focus_bg_color;;
 	}
 	&.invalid {
-		background-color: #fff0f0;
-		border: 1px solid red;
+		border-bottom: 0.125em solid #f00;
+		color: #f00;
+		&:focus {
+			color: $input_color;
+		}
+		@include placeholder {
+			color: #f00;
+		}
 	}
 	// Placeholder for input +++++++++++++++
 	@include placeholder {
 		color: $input_placeholder_color;
+		font-style: italic;
+		font-weight: 300;
+	}
+	@media (max-width: 767px) {
+	    font-size: 1em;
+	    padding: 0 0.9em 1.6em;
 	}
 }
 
