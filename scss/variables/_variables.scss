@@ -1,0 +1,93 @@
+/* Global variables */
+/* ======================================================================== */
+// Color collection for elements
+$color_primary:									#cead77;
+$color_success:									#121929;
+$color_info:									#9f9f9f;
+$color_warning:									#0a0a0a;
+$color_danger:									#8e8e8e;
+$color_withe:									#ffffff;
+
+$main_font_family:								"Gotham Pro";
+$main_color:									$color_withe;
+$main_line_height:								1.3;
+$main_font_size:								1em;
+
+$container_width:								auto;
+
+$footer_height: 								3em;
+
+$green:											$color_success;
+$yellow:										$color_warning;
+$withe:											$color_withe;
+
+$el-colors: (
+	primary: $color_primary, // color for .element__primary
+	success: $color_success, // color for .element__success
+	info: $color_info, // color for .element__info
+	warning: $color_warning, // color for .element__warning
+	danger: $color_danger, // color for .element__danger
+);
+
+
+/* Grid */
+/* ======================================================================== */
+$grid_padding:									1.5em;
+
+
+/* Form */
+/* ======================================================================== */
+// Input variables
+
+// Input color
+$input_color:									$main_color;
+$input_bg_color:								#fff;
+$input_border_color:							#ddd;
+$input_placeholder_color:						#ddd;
+
+// Input hover color
+$input_hover_color:								#fff;
+$input_hover_bg_color:							#fff;
+$input_hover_border_color:						#ddd;
+$input_hover_placeholder_color:					#ddd;
+
+// Input focus color
+$input_focus_color:								#fff;
+$input_focus_bg_color:							#fff;
+$input_focus_border_color:						#ddd;
+$input_focus_placeholder_color:					#ddd;
+
+// Input disabled color
+$input_disabled_color:							#fff;
+$input_disabled_bg_color:						#ccc;
+$input_disabled_border_color:					#ccc;
+$input_disabled_placeholder_color:				#fff;
+
+// Input error color
+$input_error_color:								red;
+$input_error_bg_color:							#fff;
+$input_error_border_color:						red;
+$input_error_placeholder_color:					red;
+
+// Button variables
+$btn_default_bg_color:				 			$color_primary;
+$btn_default_text_color:                        $color_success;
+$btn_contrast_text_color:                       $color_withe;
+$btn_default_bg_color_hover:					#ccc;
+
+
+
+/* Breakpoints */ 
+$breakpoint-small:                               480px !default;
+$breakpoint-medium:                              760px !default;
+$breakpoint-large:                               960px !default;
+$breakpoint-xlarge:                              1200px !default;
+
+$breakpoint-mini-max:                            ($breakpoint-small - 1) !default;
+$breakpoint-small-max:                           ($breakpoint-medium - 1) !default;
+$breakpoint-medium-max:                          ($breakpoint-large - 1) !default;
+$breakpoint-large-max:                           ($breakpoint-xlarge - 1) !default;
+
+
+
+

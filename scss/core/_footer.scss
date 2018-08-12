@@ -1,0 +1,13 @@
+/* Footer
+ ----------------------------------------------------------------------------- */
+.footer {
+	position: relative;
+	height: $footer_height;
+	// background: #BFF08E;
+	@extend %clear_all;
+	.container_center {
+		padding-top: 0.6em;
+		padding-bottom: 0.6em;
+	}
+}
+

@@ -1,0 +1,149 @@
+/*!
+ *
+ * Evgeniy Ivanov - 2018
+ * busforward@gmail.com
+ * Skype: ivanov_ea
+ *
+ */
+
+@import 'mixins/mixin';
+// Fonts
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+
+// Mixin for include fonts
+// @include font-face("ArialMT", fonts/CenturyGothic, normal, normal);
+
+ // Import files
+@import 'core/fonts';
+@import 'variables/variables';
+@import 'core/reset';
+@import 'core/template';
+@import 'core/header';
+@import 'core/footer';
+@import 'core/form';
+// @import 'core/grid';
+@import 'core/soc';
+// @import 'core/breadcrumb';
+// @import 'core/pagination';
+@import 'core/buttons';
+// @import 'core/video';
+@import 'core/icon';
+
+
+.joornal {
+	position: absolute;
+	bottom: 9.8em;
+	left: 1.8em;
+	width: 55.89em;
+	height: 33.74em;
+	z-index: 1;
+}
+
+.content {
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 9em;
+	padding-right: 6em;
+	padding-top: 8.2em;
+	@extend %clear_a;
+	&__wrap {
+		float: right;
+		display: table;
+		width: 100%;
+		max-width: 50.6%;
+		@extend %clear_a;
+	}
+	.content__left {
+		display: table-cell;
+		width: 32.3%;
+	}
+	.content__right {
+		display: table-cell;
+		padding-left: 2.6em;	
+	}
+}
+
+.list {
+	text-align: left;
+	&__item {
+		display: table;
+		width: 100%;
+		margin-bottom: 1.5em;
+		&:nth-child(2) {
+			.list__img {
+				&:after {
+					content: '';
+					position: absolute;
+					display: block;
+					background-color: $color_withe;
+					width: 0.063em;
+					height: 1.6em;
+					top: -1.5em;
+					left: 1.55em;
+				}
+			}
+		}
+		&:nth-child(3) {
+			.list__img {
+				&:after {
+					content: '';
+					position: absolute;
+					display: block;
+					background-color: $color_withe;
+					width: 0.063em;
+					height: 1.6em;
+					bottom: -1.5em;
+					left: 1.55em;
+				}
+			}
+		}
+	}
+	&__img {
+		display: table-cell;
+		vertical-align: middle;
+		padding-right: 2.5em;
+		width: 4.75em;
+		position: relative;
+		
+		i {
+			width: 3.25em;
+			height: 3.25em;
+			display: block;
+			text-align: center;
+			line-height: 3.25em;
+			border: 0.063em solid $color_withe;
+			border-radius: 50%;
+			&:before {
+				font-size: 1.5em;
+			}
+		}
+	}
+	&__text {
+		display: table-cell;
+		vertical-align: middle;
+		font-size: 0.875em;
+	}
+	&__action {
+
+	}
+	.icon-auction {}
+	.icon-certificate {}
+	.icon-insurance {}
+	.icon-house {}
+}
+
+.txt {
+	@each $status_el, $color_bg in $el_colors {
+		&_#{$status_el} {
+			color: $color_bg;
+		}
+	}	
+}
+
+.title {
+	font-weight: 900;
+	font-size: 3em;
+	text-transform: uppercase;
+	margin: 0 0 1.4em;
+}

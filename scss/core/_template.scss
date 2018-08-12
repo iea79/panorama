@@ -1,0 +1,42 @@
+// Main wrappers =====================================
+.wrapper {
+	font-size: $main_font_size;
+	display: table;
+	width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto (-$footer_height) auto; // отрицательный нижний отступ на высоту футера
+    background: url('../img/bg.jpg') no-repeat center center;
+	&:before {
+		content: '';
+		width: 71.75em;
+		height: 63.75em;
+		background-color: $color_primary;
+		border-radius: 50%;
+		position: absolute;
+		bottom: -25em;
+		left: -14em;
+	}
+}
+
+/* Middle
+ ----------------------------------------------------------------------------- */
+// .main__content {
+// 	padding-bottom: $footer_height;
+// 	@extend %clear_a;
+// }
+
+.container_center {
+	max-width: $container_width;
+	padding: 0 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.column {
+	@include columns(4, 20px, 300px);
+}
+
+
