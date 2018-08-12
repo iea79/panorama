@@ -2,9 +2,9 @@
 .btn {
 	color: $btn_default_text_color;
 	font-family: $main_font_family;
-	font-size: 16px;
-	font-weight: 300;
-	padding: 5px 15px 7px;
+	font-size: 0.875em;
+	font-weight: 900;
+	padding: 1.85em 2.6em 1.6em;
 	border: none;
 	outline: none;
 	text-decoration: none;
@@ -13,17 +13,19 @@
 	text-align: center;
 	max-width: 100%;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 2.98em;
 	transition: all 0.3s;
-	text-decoration: none;
+	text-transform: uppercase;
+	
 	&:hover {
-		background-color: #fff;
-		color: #000;
+		background-color: $color_primary;
+		color: $btn_default_text_color;
 		text-decoration: none;
+		box-shadow: 0 0 3.75em rgba(206, 173, 119, 0.2);
 	}
 	&:active {
-		background-color: transparentize(#fff, .2);
-		color: #000;
+		background-color: #716147;
+		color: $btn_default_text_color;
 	}
 	// @each $status_el, $color_bg in $el_colors {
 	// 	&_#{$status_el} {

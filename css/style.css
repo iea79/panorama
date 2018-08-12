@@ -5,7 +5,7 @@
  * Skype: ivanov_ea
  *
  */
-.footer:after, .header:after, .form:after, .form__row:after, .content:after, .content__wrap:after {
+.footer:after, .header:after, .footer .container_center:after, .form:after, .form__row:after, .content:after, .content__wrap:after {
   content: '';
   display: table;
   clear: both; }
@@ -517,8 +517,9 @@ template {
   height: auto !important;
   height: 100%;
   overflow: hidden;
-  margin: 0 auto -3em auto;
-  background: url("../img/bg.jpg") no-repeat center center; }
+  margin: 0 auto -5em auto;
+  background: url("../img/bg.jpg") no-repeat center center;
+  background-size: cover; }
   .wrapper:before {
     content: '';
     width: 71.75em;
@@ -526,8 +527,8 @@ template {
     background-color: #cead77;
     border-radius: 50%;
     position: absolute;
-    bottom: -25em;
-    left: -14em; }
+    bottom: -26.5em;
+    left: -14.1em; }
 
 /* Middle
  ----------------------------------------------------------------------------- */
@@ -625,8 +626,8 @@ template {
       bottom: -1.6em; }
     .header__callback:after {
       width: 0;
-      height: 0.1em;
-      bottom: -1.35em; }
+      height: 0.2em;
+      bottom: -1.36em; }
     .header__callback:hover:after {
       left: 0;
       width: 100%; }
@@ -635,10 +636,14 @@ template {
  ----------------------------------------------------------------------------- */
 .footer {
   position: relative;
-  height: 3em; }
+  height: 5em; }
   .footer .container_center {
     padding-top: 0.6em;
     padding-bottom: 0.6em; }
+  .footer__content {
+    float: right;
+    width: 100%;
+    max-width: 44.2%; }
 
 .form__row {
   margin-bottom: 15px; }
@@ -829,21 +834,39 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
   color: #aaa; }
 
 .soc {
-  float: left; }
+  float: left;
+  margin-right: 3em; }
   .soc a {
     display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-right: 2em;
     -webkit-transition: all 0.3ss;
     -o-transition: all 0.3ss;
     transition: all 0.3ss; }
     .soc a:hover {
-      opacity: .8; }
+      color: #cead77; }
+    .soc a:active {
+      color: #716147; }
+
+.copy {
+  overflow: hidden;
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.3);
+  max-width: 46.2em;
+  text-transform: uppercase; }
+  .copy a {
+    color: rgba(255, 255, 255, 0.3); }
+    .copy a:hover {
+      text-decoration: none; }
 
 .btn {
   color: #121929;
   font-family: "Gotham Pro";
-  font-size: 16px;
-  font-weight: 300;
-  padding: 5px 15px 7px;
+  font-size: 0.875em;
+  font-weight: 900;
+  padding: 1.85em 2.6em 1.6em;
   border: none;
   outline: none;
   text-decoration: none;
@@ -852,18 +875,20 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
   text-align: center;
   max-width: 100%;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 2.98em;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  text-decoration: none; }
+  text-transform: uppercase; }
   .btn:hover {
-    background-color: #fff;
-    color: #000;
-    text-decoration: none; }
+    background-color: #cead77;
+    color: #121929;
+    text-decoration: none;
+    -webkit-box-shadow: 0 0 3.75em rgba(206, 173, 119, 0.2);
+    box-shadow: 0 0 3.75em rgba(206, 173, 119, 0.2); }
   .btn:active {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #000; }
+    background-color: #716147;
+    color: #121929; }
 
 @font-face {
   font-family: 'icomoon';
@@ -911,9 +936,9 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
 
 .joornal {
   position: absolute;
-  bottom: 9.8em;
-  left: 1.8em;
-  width: 55.89em;
+  bottom: 8.5em;
+  left: 1.1em;
+  width: 56.59em;
   height: 33.74em;
   z-index: 1; }
 
@@ -929,10 +954,10 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
     display: table;
     width: 100%;
     max-width: 50.6%; }
-  .content .content__left {
+  .content__left {
     display: table-cell;
     width: 32.3%; }
-  .content .content__right {
+  .content__right {
     display: table-cell;
     padding-left: 2.6em; }
 
@@ -999,5 +1024,6 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
 .title {
   font-weight: 900;
   font-size: 3em;
+  line-height: 1.2;
   text-transform: uppercase;
-  margin: 0 0 1.4em; }
+  margin: 0 0 0.9em; }

@@ -9,6 +9,7 @@
     overflow: hidden;
     margin: 0 auto (-$footer_height) auto; // отрицательный нижний отступ на высоту футера
     background: url('../img/bg.jpg') no-repeat center center;
+    background-size: cover;
 	&:before {
 		content: '';
 		width: 71.75em;
@@ -16,8 +17,8 @@
 		background-color: $color_primary;
 		border-radius: 50%;
 		position: absolute;
-		bottom: -25em;
-		left: -14em;
+		bottom: -26.5em;
+		left: -14.1em;
 	}
 }
 

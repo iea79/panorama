@@ -8,6 +8,12 @@
 	.container_center {
 		padding-top: 0.6em;
 		padding-bottom: 0.6em;
+		@extend %clear_a;
+	}
+	&__content {
+		float: right;
+		width: 100%;
+		max-width: 44.2%;
 	}
 }
 

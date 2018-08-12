@@ -32,9 +32,9 @@
 
 .joornal {
 	position: absolute;
-	bottom: 9.8em;
-	left: 1.8em;
-	width: 55.89em;
+	bottom: 8.5em;
+	left: 1.1em;
+	width: 56.59em;
 	height: 33.74em;
 	z-index: 1;
 }
@@ -54,11 +54,11 @@
 		max-width: 50.6%;
 		@extend %clear_a;
 	}
-	.content__left {
+	&__left {
 		display: table-cell;
 		width: 32.3%;
 	}
-	.content__right {
+	&__right {
 		display: table-cell;
 		padding-left: 2.6em;	
 	}
@@ -144,6 +144,7 @@
 .title {
 	font-weight: 900;
 	font-size: 3em;
+	line-height: 1.2;
 	text-transform: uppercase;
-	margin: 0 0 1.4em;
+	margin: 0 0 0.9em;
 }
