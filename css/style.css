@@ -1340,4 +1340,61 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
   .success .subtitle {
     margin-bottom: 5.2em; }
 
+.inJob {
+  position: absolute;
+  text-transform: uppercase;
+  right: 3.5em;
+  bottom: 2.5em; }
+  .inJob__hover {
+    width: 4.3em;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.875em;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    color: #fff;
+    text-decoration: none; }
+    .inJob__hover span {
+      display: none;
+      overflow: hidden;
+      font-weight: 300;
+      text-transform: none;
+      font-size: 0.75em;
+      padding: 1.2em 0;
+      white-space: nowrap; }
+    .inJob__hover:before {
+      content: '';
+      background: url("../img/inJob.png") no-repeat center center;
+      width: 3.75em;
+      height: 3.75em;
+      background-size: 100%;
+      float: left;
+      display: block; }
+    .inJob__hover:hover {
+      -webkit-box-shadow: 0 0 5em rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 5em rgba(0, 0, 0, 0.2);
+      background-color: #0a0a0a;
+      width: 18.9em; }
+      .inJob__hover:hover span {
+        display: block; }
+      .inJob__hover:hover:before {
+        content: '';
+        background-image: url(../img/h-logo-color.png);
+        width: 9em;
+        margin-right: 1em;
+        background-size: 85%;
+        background-position: left 0.95em top 0.78em;
+        position: relative; }
+  @media (max-width: 1199px) {
+    .inJob {
+      font-size: 0.9em;
+      right: 1em; } }
+  @media (max-width: 767px) {
+    .inJob {
+      display: none; } }
+
 /*# sourceMappingURL=style.css.map */
